@@ -1,0 +1,5 @@
+const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');const port=Number(process.env.PORT||5173);
+const allowed=new Set(['index.html','favicon.svg','src/styles.css','src/app.js','src/engine.js','src/guidance.js','data/rules.generated.js','vendor/react-runtime.js']);
+const types={'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml'};
+http.createServer((req,res)=>{let name;try{name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '')||'index.html';}catch{res.writeHead(400).end('Bad request');return;}if(!['GET','HEAD'].includes(req.method)||!allowed.has(name)){res.writeHead(404).end('Not found');return;}res.writeHead(200,{'Content-Type':types[path.extname(name)],'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'});if(req.method==='HEAD')res.end();else fs.createReadStream(path.join(root,name)).pipe(res);}).listen(port,'127.0.0.1',()=>console.log(`ScamShield LK: http://localhost:${port}\nPress Ctrl+C to stop.`));

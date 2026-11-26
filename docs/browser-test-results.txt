@@ -1,0 +1,11 @@
+PASS: empty message validation
+PASS: example, highlighted evidence and verification checklist
+PASS: Sinhala explanations
+PASS: Sinhala and Singlish message checks
+PASS: URL findings and non-clickable evidence
+PASS: unsupported URL validation
+PASS: no-match uncertainty and reset
+PASS: user input rendered as text
+PASS: navigation, guide, official reporting links and privacy reset
+PASS: 390 px mobile layout and analysis
+PASS: no uncaught JavaScript errors or network requests during isolated UI checks

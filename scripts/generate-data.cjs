@@ -1,0 +1,1 @@
+const fs=require('node:fs');const path=require('node:path');const root=path.join(__dirname,'..');const data=JSON.parse(fs.readFileSync(path.join(root,'data/rules.json'),'utf8'));fs.writeFileSync(path.join(root,'data/rules.generated.js'),'window.SCAM_RULES = '+JSON.stringify(data,null,2)+';\n');

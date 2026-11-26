@@ -1,0 +1,1 @@
+{"name":"scamshield-lk","version":"1.0.0","private":true,"description":"Browser-only multilingual scam warning and verification assistant","scripts":{"dev":"node scripts/server.cjs","start":"node scripts/server.cjs","test":"node --test tests/engine.test.cjs","build":"node scripts/build.cjs","generate:rules":"node scripts/generate-data.cjs"},"engines":{"node":">=18"}}
